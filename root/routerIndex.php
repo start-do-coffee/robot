@@ -10,10 +10,19 @@
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-    $router->map( 'GET', '/login/line', array(new LineAccountCotroller(),'login') ,'LineLogin');
+    //$router->map( 'GET', '/login/line', array(new LineAccountCotroller(),'login') ,'LineLogin');
+
+
+    setAccountRouter($router);
 
 
 
+    function setAccountRouter($router){
+
+        $router->map( 'GET', '/login/line', array(new LineAccountCotroller(),'login') ,'LineLogin');
+
+        return $router;
+    }
 
     $match = $router->match();
 
