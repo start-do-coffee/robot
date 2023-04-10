@@ -4,7 +4,7 @@ class ChatGPT {
     private $openai_api_key;
     private $model_engine;
 
-    public function __construct($engine = 'text-davinci-002') {
+    public function __construct($engine = 'gpt-3.5-turbo') {
         $this->openai_api_key = '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';
         $this->model_engine = $engine;
     }
