@@ -1,0 +1,17 @@
+{
+    "name": "ouyang/robot",
+    "autoload": {
+        "psr-4": {
+            "Ouyang\\Robot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "泰森",
+            "email": "my556655662000@gmail.com"
+        }
+    ],
+    "require": {
+        "altorouter/altorouter": "1.1.0"
+    }
+}
