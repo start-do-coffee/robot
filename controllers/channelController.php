@@ -9,7 +9,7 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "test";
+        echo "Line Login";
         
     }
 /************************************
