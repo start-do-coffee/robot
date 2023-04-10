@@ -3,11 +3,18 @@
 
     $router = new AltoRouter();
 
-
-
-
+    // Line帳號相關
     setLineAccountRouter($router);
 
+
+    /************************************
+        * 函式簡述： ChatGPT
+        * 路徑：/init
+        * Method：GET
+        * 輸入參數 ：Null
+        * @return：JSON Array
+    ***********************************/
+        $router->map( 'GET', '/chatgpt', array(new chatGPTCotroller(),'ask') ,'chatGptAsk');
 
 
     function setLineAccountRouter($router){
