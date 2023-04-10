@@ -1,10 +1,10 @@
 <?php
-    //require 'vendor/autoload.php';
+    require 'vendor/autoload.php';
 
     //require 'define.php';
 
-    //require 'root/routerIndex.php';
+    require 'root/routerIndex.php';
 
   
 
-  echo phpinfo();
+  
