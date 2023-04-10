@@ -39,6 +39,6 @@ class ChatGPT
 
         $result = json_decode($result, true);
 
-        return $result["choices"][0]["text"];
+        return $result;
     }
 }
