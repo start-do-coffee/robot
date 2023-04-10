@@ -1,44 +1,37 @@
 <?php
+class ChatGPT {
+    private $openai_api_key;
+    private $model_engine;
 
-class ChatGPT
-{
-    private $model = "text-davinci-002";
-    private $apiKey;
-
-    public function __construct()
-    {
-        $this->apiKey = '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';
+    public function __construct( $engine = 'text-davinci-002') {
+        $this->openai_api_key = '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';
+        $this->model_engine = $engine;
     }
 
-    public function ask($prompt, $maxTokens = 1024, $temperature = 0.5)
-    {
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, "https://api.openai.com/v1/engines/".$this->model."/jobs");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-
+    public function ask($prompt, $temperature = 0.7, $max_tokens = 60) {
+        // 構建 API 請求
         $data = array(
-          "prompt" => $prompt,
-          "max_tokens" => $maxTokens,
-          "temperature" => $temperature,
+            'model' => $this->model_engine,
+            'prompt' => $prompt,
+            'temperature' => $temperature,
+            'max_tokens' => $max_tokens,
         );
-
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->openai_api_key,
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/engines/' . $this->model_engine . '/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-
-        $headers = array();
-        $headers[] = "Content-Type: application/json";
-        $headers[] = "Authorization: Bearer ".$this->apiKey;
+        curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-        $result = curl_exec($ch);
-        if (curl_errno($ch)) {
-            echo 'Error:' . curl_error($ch);
-        }
-        curl_close ($ch);
-
-        $result = json_decode($result, true);
-
-        return $result;
+        // 處理 API 回應
+        $response_array = json_decode($response, true);
+        $answer = $response_array['choices'][0]['text'];
+        return $answer;
     }
 }
