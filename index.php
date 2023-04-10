@@ -3,7 +3,7 @@
 
     //require 'define.php';
 
-    require 'root/router.php';
+    require 'root/routerIndex.php';
 
   
 

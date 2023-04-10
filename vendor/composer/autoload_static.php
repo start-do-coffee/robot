@@ -10,6 +10,7 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'LineAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/lineAccountController.php',
+        'googleAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/googleAccountController.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

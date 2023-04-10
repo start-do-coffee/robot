@@ -1,6 +1,6 @@
 <?php
 
-class LineAccountCotroller {
+class googleAccountCotroller {
     
     
 /************************************
@@ -9,7 +9,7 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "Line Login";
+        echo "Google Login";
     }
 /************************************
     * 函式簡述： 登出
@@ -17,7 +17,7 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function logout(){
-        echo "Line Logout";
+        echo "Google Logout";
     }   
 /************************************
     * 函式簡述： 取得帳號資訊
@@ -25,7 +25,7 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function getAccountData(){
-        echo "Line 取得帳號資訊";
+        echo "Google 取得帳號資訊";
     }   
 
 }
