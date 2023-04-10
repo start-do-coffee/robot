@@ -36,7 +36,7 @@
             * 輸入參數 ：Null
             * @return：JSON Array
         ***********************************/
-        $router->map( 'GET', '/line/data', array(new LineAccountCotroller(),'getAccountDatas') ,'getAccountDatas');
+        $router->map( 'GET', '/line/data', array(new LineAccountCotroller(),'getAccountData') ,'getAccountData');
 
         return $router;
     }
