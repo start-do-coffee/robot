@@ -19,7 +19,7 @@
 
     function setAccountRouter($router){
 
-        $router->map( 'GET', '/login/line', array(new LineAccountCotroller(),'login') ,'LineLogin');
+        $router->map( 'GET', '/line/login', array(new LineAccountCotroller(),'login') ,'LineLogin');
 
         return $router;
     }
