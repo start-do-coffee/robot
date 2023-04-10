@@ -30,8 +30,8 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
     public static $prefixDirsPsr4 = array (
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -53,9 +53,10 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'ChatGPT' => __DIR__ . '/../..' . '/models/chatGPT/chatGPT.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'LineAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/lineAccountController.php',
-        'chatGPT' => __DIR__ . '/../..' . '/models/chatGPT/chatGPT.php',
+        'chatGPTCotroller' => __DIR__ . '/../..' . '/controllers/robot/chatGPTController.php',
         'googleAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/googleAccountController.php',
     );
 
