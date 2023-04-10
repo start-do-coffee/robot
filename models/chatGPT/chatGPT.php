@@ -1,15 +1,15 @@
 <?php
+
 class ChatGPT {
     private $openai_api_key;
     private $model_engine;
 
-    public function __construct( $engine = 'text-davinci-002') {
-        $this->openai_api_key = 'shffP6o5AG9BhjMtZqOVT3BlbkFJK14kC4HcL6JjM6MxuvXM';
+    public function __construct($engine = 'text-davinci-002') {
+        $this->openai_api_key = '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';
         $this->model_engine = $engine;
     }
 
     public function ask($prompt, $temperature = 0.7, $max_tokens = 60) {
-        // 構建 API 請求
         $data = array(
             'model' => $this->model_engine,
             'prompt' => $prompt,
@@ -29,7 +29,6 @@ class ChatGPT {
         $response = curl_exec($ch);
         curl_close($ch);
 
-        // 處理 API 回應
         $response_array = json_decode($response, true);
         $answer = $response_array['choices'][0]['text'];
         return $answer;
