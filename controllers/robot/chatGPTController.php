@@ -11,6 +11,6 @@ class chatGPTCotroller {
     function ask(){
         $GPT = new ChatGPT();
         $answer = $GPT->ask('什麼事chatGPT');
-        printf($answer);
+        echo $answer;
     }
 }
