@@ -9,8 +9,6 @@ class chatGPTCotroller {
     * @return：JSON Array
 ***********************************/
     function ask(){
-        $GPT = new ChatGPT();
-        $answer = $GPT->ask('什麼事chatGPT');
-        echo $answer;
+        
     }
 }
