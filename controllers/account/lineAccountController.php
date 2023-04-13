@@ -9,9 +9,10 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function login(){
-        $lineAccout = new LineAccountModel();
-        $lineAccout -> login(); 
-        
+
+        $lineAccountModel = new LineAccountModel() ;
+        $lineAccountModel -> login();
+
     }
 /************************************
     * 函式簡述： 登出
