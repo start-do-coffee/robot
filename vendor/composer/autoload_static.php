@@ -23,9 +23,11 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'cotrollerChatGPT' => __DIR__ . '/../..' . '/controllers/robot/chatGPTController.php',
-        'cotrollerGoogleAccount' => __DIR__ . '/../..' . '/controllers/account/googleAccountController.php',
-        'cotrollerLineAccount' => __DIR__ . '/../..' . '/controllers/account/lineAccountController.php',
+        'ModelChatGPT' => __DIR__ . '/../..' . '/models/robot/ModelChatGPT.php',
+        'ModelLineAccount' => __DIR__ . '/../..' . '/models/account/ModelLineAccount.php',
+        'cotrollerChatGPT' => __DIR__ . '/../..' . '/controllers/robot/controllerChatGPT.php',
+        'cotrollerGoogleAccount' => __DIR__ . '/../..' . '/controllers/account/controllerGoogleAccount.php',
+        'cotrollerLineAccount' => __DIR__ . '/../..' . '/controllers/account/controllerLineAccount.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
