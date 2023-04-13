@@ -9,7 +9,7 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "Line Login";
+        
     }
 /************************************
     * 函式簡述： 登出
