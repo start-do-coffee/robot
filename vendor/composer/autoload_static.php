@@ -25,9 +25,9 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
         'ChatGptModel' => __DIR__ . '/../..' . '/models/robot/ChatGptModel.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'LineAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/lineAccountController.php',
-        'LineAccountModel' => __DIR__ . '/../..' . '/models/account/LineAccountModel.php',
         'chatGPTCotroller' => __DIR__ . '/../..' . '/controllers/robot/chatGPTController.php',
         'googleAccountCotroller' => __DIR__ . '/../..' . '/controllers/account/googleAccountController.php',
+        'lineAccountModel' => __DIR__ . '/../..' . '/models/account/LineAccountModel.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,6 +1,6 @@
 <?php
 
-class LineAccountModel {
+class lineAccountModel {
     
     
 /************************************

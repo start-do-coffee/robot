@@ -10,7 +10,7 @@ return array(
     'ChatGptModel' => $baseDir . '/models/robot/ChatGptModel.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'LineAccountCotroller' => $baseDir . '/controllers/account/lineAccountController.php',
-    'LineAccountModel' => $baseDir . '/models/account/LineAccountModel.php',
     'chatGPTCotroller' => $baseDir . '/controllers/robot/chatGPTController.php',
     'googleAccountCotroller' => $baseDir . '/controllers/account/googleAccountController.php',
+    'lineAccountModel' => $baseDir . '/models/account/LineAccountModel.php',
 );
