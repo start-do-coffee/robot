@@ -9,6 +9,7 @@ return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'LineAccountCotroller' => $baseDir . '/controllers/account/lineAccountController.php',
+    'LineAccountModel' => $baseDir . '/models/account/lineAccountModel.php',
     'chatGPTCotroller' => $baseDir . '/controllers/robot/chatGPTController.php',
     'googleAccountCotroller' => $baseDir . '/controllers/account/googleAccountController.php',
 );
