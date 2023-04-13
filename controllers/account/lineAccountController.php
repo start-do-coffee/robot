@@ -10,7 +10,7 @@ class LineAccountCotroller {
 ***********************************/
     function login(){
 
-        $lineAccountModel = new LineAccountModel() ;
+        $lineAccountModel = new lineAccountModel();
         $lineAccountModel -> login();
 
     }
