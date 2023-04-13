@@ -1,10 +1,5 @@
 {
     "name": "ouyang/robot",
-    "autoload": {
-        "psr-4": {
-            "Ouyang\\Robot\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "泰森",
@@ -18,6 +13,9 @@
         "classmap": [
             "models",
             "controllers"
-        ]
+        ],
+        "psr-4": {
+            "Ouyang\\Robot\\": "src/"
+        }
     }
 }

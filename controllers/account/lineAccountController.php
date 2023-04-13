@@ -1,6 +1,6 @@
 <?php
 
-class LineAccountCotroller {
+class cotrollerLineAccount {
     
     
 /************************************

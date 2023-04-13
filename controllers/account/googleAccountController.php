@@ -1,6 +1,6 @@
 <?php
 
-class googleAccountCotroller {
+class cotrollerGoogleAccount{
     
     
 /************************************

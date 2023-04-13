@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'LineAccountCotroller' => $baseDir . '/controllers/account/lineAccountController.php',
-    'chatGPTCotroller' => $baseDir . '/controllers/robot/chatGPTController.php',
-    'googleAccountCotroller' => $baseDir . '/controllers/account/googleAccountController.php',
+    'cotrollerChatGPT' => $baseDir . '/controllers/robot/chatGPTController.php',
+    'cotrollerGoogleAccount' => $baseDir . '/controllers/account/googleAccountController.php',
+    'cotrollerLineAccount' => $baseDir . '/controllers/account/lineAccountController.php',
 );
