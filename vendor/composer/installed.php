@@ -3,7 +3,7 @@
         'name' => 'ouyang/robot',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '48e849f6c5de11dbb1cb27e8fdd88a8fd8d7b01f',
+        'reference' => 'be3b3030934814090175267b4b9a383d77dd6ab5',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'ouyang/robot' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '48e849f6c5de11dbb1cb27e8fdd88a8fd8d7b01f',
+            'reference' => 'be3b3030934814090175267b4b9a383d77dd6ab5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
