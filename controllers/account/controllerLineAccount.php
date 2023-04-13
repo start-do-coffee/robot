@@ -9,7 +9,8 @@ class cotrollerLineAccount {
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "Line Login";
+        $ModelLineAccount = new ModelLineAccount();
+        $ModelLineAccount -> login();
     }
 /************************************
     * 函式簡述： 登出
