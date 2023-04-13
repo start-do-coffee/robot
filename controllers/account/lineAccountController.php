@@ -9,6 +9,8 @@ class LineAccountCotroller {
     * @return：JSON Array
 ***********************************/
     function login(){
+        $lineAccout = new LineAccountModel();
+        $lineAccout -> login(); 
         
     }
 /************************************
