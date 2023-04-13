@@ -9,7 +9,7 @@ class ModelLineAccount {
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "Line Login";
+        echo "Model Line Login";
     }
 /************************************
     * 函式簡述： 登出
