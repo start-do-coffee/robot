@@ -9,6 +9,10 @@ class cotrollerLineAccount {
     * @return：JSON Array
 ***********************************/
     function login(){
+
+        //加入line sdk(api)
+        //用sdk 做登入,取得line token
+        //跟伺服器確認有無登入過
         $ModelLineAccount = new ModelLineAccount();
         $ModelLineAccount -> login();
     }
