@@ -1,12 +1,16 @@
 <?php
 
     require 'router/routerLine.php';
+    require 'router/routeRobot.php';
 
 
     $router = new AltoRouter();
 
-    // Line帳號相關
+    // Line帳號相關router
     setLineAccountRouter($router);
+
+    //設定機器人相關router
+    setRobotRouter($router);
 
     $match = $router->match();
 
