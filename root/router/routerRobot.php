@@ -18,7 +18,7 @@ function setRobotRouter($router){
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-$router->map( 'POST', '/robot/question/set', array(new cotrollerChatGPT(),'setQuestion') ,'RobotSetQuestion');
+    $router->map( 'POST', '/robot/question/set', array(new cotrollerChatGPT(),'setQuestion') ,'RobotSetQuestion');
 
 
     return $router;
