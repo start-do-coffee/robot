@@ -1,6 +1,6 @@
 <?php
 
-    require 'router/routerLIne.php';
+    require 'router/routerLine.php';
 
 
     $router = new AltoRouter();
