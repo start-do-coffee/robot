@@ -56,15 +56,32 @@ class ModelGoogleSheet {
         $response = $this->GoogleApp->spreadsheets_values->get($this->gogoleSheetId, $this->googleSheetName.$this->googleSheetRange);
         $values = $response->getValues();
 
+        $answer = '';
+
         foreach($values as $value){
             if($value[0] == $keyWord){
-                print_r($value);
-                echo "答案".$value[1]."/n";
+                $answer = $value[1];
             }
         }
+
+        if($answer == ''){
+            $answer = $this->fuzzySearch($keyWord, $values);
+        }
+
+        echo "答案:".$answer;
     }
 
-    function fuzzySearch(array $dataArray){
+    function fuzzySearch(string $keyWord, array $dataArray){
+
+        $answer = '';        
+
+        foreach($dataArray as $value){
+            if (stripos($value[0], $keyWord) !== false) {
+                $answer = $value[1];
+            }
+        }
+
+        return $answer;
 
     }
 
