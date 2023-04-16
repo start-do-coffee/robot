@@ -10,14 +10,12 @@ class ModelLineAccount {
 ***********************************/
     function login(){
         echo "Model Line Login";
-        require_once 'vendor/autoload.php';
-        $client = new Google\Client();
-        $client->setClientId('YOUR_CLIENT_ID');
-        $client->setClientSecret('YOUR_CLIENT_SECRET');
-        $client->setRedirectUri('YOUR_REDIRECT_URI');
-        $client->setAccessType('offline');
-        $client->setApprovalPrompt('force');
-        $client->setAccessToken('YOUR_ACCESS_TOKEN');
+        $KEY = "";
+        $SheetIndex = 1;
+        $json_url = "https://spreadsheets.google.com/feeds/list/".$KEY."/".$SheetIndex."/public/values?alt=json";
+        $string = file_get_contents($json_url);
+        $data_json = json_decode($string,true);
+        print_r($data_json);
     }
 /************************************
     * 函式簡述： 登出
