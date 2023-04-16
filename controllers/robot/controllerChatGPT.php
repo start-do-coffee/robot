@@ -10,6 +10,7 @@ class cotrollerChatGPT {
 ***********************************/
     function askQuestion(){
         $GoogleSheet = new ModelGoogleSheet();
+        $GoogleSheet->InitGoogleClient();
         $GoogleSheet->getDataArray();
     }
 
