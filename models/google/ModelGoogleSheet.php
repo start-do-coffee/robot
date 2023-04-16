@@ -52,10 +52,19 @@ class ModelGoogleSheet {
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-    function getData(){
-
+    function getData(string $keyWord){
+        $response = $this->GoogleApp->spreadsheets_values->get($this->gogoleSheetId, $this->googleSheetName.$this->googleSheetRange);
+        $values = $response->getValues();
+        foreach($values as $value){
+            if($value[0] == $keyWord){
+                echo "答案".$value[1]."/n"
+            }
+        }
     }
 
+    function fuzzySearch(array $dataArray){
+
+    }
 
 }
 
