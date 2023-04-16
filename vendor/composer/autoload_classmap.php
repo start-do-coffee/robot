@@ -32,6 +32,7 @@ return array(
     'ModelChatGPT' => $baseDir . '/models/robot/ModelChatGPT.php',
     'ModelGoogleSheet' => $baseDir . '/models/google/ModelGoogleSheet.php',
     'ModelLineAccount' => $baseDir . '/models/account/ModelLineAccount.php',
+    'ModelRouterError' => $baseDir . '/models/router/ModelRouterError.php',
     'cotrollerChatGPT' => $baseDir . '/controllers/robot/controllerChatGPT.php',
     'cotrollerGoogleAccount' => $baseDir . '/controllers/account/controllerGoogleAccount.php',
     'cotrollerLineAccount' => $baseDir . '/controllers/account/controllerLineAccount.php',

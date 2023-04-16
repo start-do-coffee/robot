@@ -143,6 +143,7 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
         'ModelChatGPT' => __DIR__ . '/../..' . '/models/robot/ModelChatGPT.php',
         'ModelGoogleSheet' => __DIR__ . '/../..' . '/models/google/ModelGoogleSheet.php',
         'ModelLineAccount' => __DIR__ . '/../..' . '/models/account/ModelLineAccount.php',
+        'ModelRouterError' => __DIR__ . '/../..' . '/models/router/ModelRouterError.php',
         'cotrollerChatGPT' => __DIR__ . '/../..' . '/controllers/robot/controllerChatGPT.php',
         'cotrollerGoogleAccount' => __DIR__ . '/../..' . '/controllers/account/controllerGoogleAccount.php',
         'cotrollerLineAccount' => __DIR__ . '/../..' . '/controllers/account/controllerLineAccount.php',
