@@ -57,7 +57,7 @@ class ModelGoogleSheet {
         $values = $response->getValues();
         foreach($values as $value){
             if($value[0] == $keyWord){
-                echo "答案".$value[1]."/n"
+                echo "答案".$value[1]."/n";
             }
         }
     }
