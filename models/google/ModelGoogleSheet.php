@@ -55,6 +55,8 @@ class ModelGoogleSheet {
     function getData(string $keyWord){
         $response = $this->GoogleApp->spreadsheets_values->get($this->gogoleSheetId, $this->googleSheetName.$this->googleSheetRange);
         $values = $response->getValues();
+        echo "原始資料".$values ;
+        
         foreach($values as $value){
             if($value[0] == $keyWord){
                 echo "答案".$value[1]."/n";
