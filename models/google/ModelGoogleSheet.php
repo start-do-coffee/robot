@@ -56,8 +56,6 @@ class ModelGoogleSheet {
         $response = $this->GoogleApp->spreadsheets_values->get($this->gogoleSheetId, $this->googleSheetName.$this->googleSheetRange);
         $values = $response->getValues();
 
-        echo "keyWord = ".urldecode($keyWord);;
-
         foreach($values as $value){
             if($value[0] == $keyWord){
                 print_r($value);

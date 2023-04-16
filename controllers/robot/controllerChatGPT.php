@@ -9,9 +9,11 @@ class cotrollerChatGPT {
     * @return：JSON Array
 ***********************************/
     function askQuestion(string $keyWord){
+        $keyWordUrlDecode = urldecode($keyWord);
+
         $GoogleSheet = new ModelGoogleSheet();
         $GoogleSheet->InitGoogleClient();
-        $GoogleSheet->getData($keyWord);
+        $GoogleSheet->getData($keyWordUrlDecode);
     }
 
 /************************************
