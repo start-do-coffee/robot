@@ -27,6 +27,11 @@ class ModelGoogleSheet {
 ***********************************/
     function InitGoogleClient(){
         
+        echo 'gogoleSheetId'.$this->gogoleSheetId;
+        echo '--googleSheetName'.$this->googleSheetName;
+        echo '--googleSheetRange'.$this->googleSheetRange;
+
+
         $client = new Google_Client();
         $client->setApplicationName('Google Sheets and PHP');
         //$client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
