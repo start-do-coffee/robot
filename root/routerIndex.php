@@ -12,6 +12,9 @@
     //設定機器人相關router
     setRobotRouter($router);
 
+
+    $router->map( 'GET', '/callback', array(new ModelRouterError(),'callback') ,'callback');
+
     $match = $router->match();
 
 
