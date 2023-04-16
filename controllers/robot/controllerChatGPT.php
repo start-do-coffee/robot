@@ -8,10 +8,10 @@ class cotrollerChatGPT {
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-    function askQuestion(){
+    function askQuestion(string $keyWord){
         $GoogleSheet = new ModelGoogleSheet();
         $GoogleSheet->InitGoogleClient();
-        $GoogleSheet->getDataArray();
+        $GoogleSheet->getData($keyWord);
     }
 
 /************************************
