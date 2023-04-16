@@ -31,7 +31,7 @@ class ModelGoogleSheet {
         $client->setApplicationName('Google Sheets and PHP');
         $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
-        $client->setAuthConfig('credentials.json');
+        $client->setAuthConfig(__DIR__ . '/credentials.json');
 
         // 建立 Google Sheets Service
         $this->GoogleApp = new Google_Service_Sheets($client);
