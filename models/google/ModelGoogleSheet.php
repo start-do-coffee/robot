@@ -16,7 +16,7 @@ class ModelGoogleSheet {
     function __construct( ) {
 
         $this->gogoleSheetId = '18e1rZdQDRB-x6-q40IE56ca1sWmfsu9fVAyyWaojNYI';
-        $this->googleSheetName = "start-do-ask!";
+        $this->googleSheetName = "start-do-ask";
         $this->googleSheetRange = "";
 
     }
