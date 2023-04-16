@@ -13,7 +13,8 @@ class cotrollerChatGPT {
 
         $GoogleSheet = new ModelGoogleSheet();
         $GoogleSheet->InitGoogleClient();
-        $GoogleSheet->getData($keyWordUrlDecode);
+        $answer = $GoogleSheet->getData($keyWordUrlDecode);
+        echo $answer;
     }
 
 /************************************

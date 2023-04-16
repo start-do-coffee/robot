@@ -49,7 +49,7 @@ class ModelGoogleSheet {
     }
 /************************************
     * 函式簡述： 取得某一行資料
-    * 輸入參數 ：Null
+    * 輸入參數 ：keyWord => 問句或是關鍵字
     * @return：JSON Array
 ***********************************/
     function getData(string $keyWord){
@@ -59,30 +59,16 @@ class ModelGoogleSheet {
         $answer = '';
 
         foreach($values as $value){
-            if($value[0] == $keyWord){
-                $answer = $value[1];
-            }
-        }
-
-        if($answer == ''){
-            $answer = $this->fuzzySearch($keyWord, $values);
-        }
-
-        echo "答案:".$answer;
-    }
-
-    function fuzzySearch(string $keyWord, array $dataArray){
-
-        $answer = '';        
-
-        foreach($dataArray as $value){
             if (stripos($value[0], $keyWord) !== false) {
                 $answer = $value[1];
             }
         }
 
-        return $answer;
+        if($answer == ''){
+            $answer = "請換個問題問問";
+        }
 
+        return $answer;
     }
 
 }
