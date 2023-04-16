@@ -9,7 +9,7 @@ function setRobotRouter($router){
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-    $router->map( 'GET', '/robot/question/ask/[a:keyWord]', array(new cotrollerChatGPT(),'askQuestion') ,'RobotAskQuestion');
+    $router->map( 'GET', '/robot/question/ask/[*:keyWord]', array(new cotrollerChatGPT(),'askQuestion') ,'RobotAskQuestion');
 
 /************************************
     * 函式簡述： 機器人及問及回答
