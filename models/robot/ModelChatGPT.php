@@ -9,6 +9,6 @@ class ModelChatGPT {
     * @return：JSON Array
 ***********************************/
     function ask(){
-        
+       
     }
 }

@@ -9,7 +9,8 @@ class cotrollerChatGPT {
     * @return：JSON Array
 ***********************************/
     function askQuestion(){
-        echo 'Line@ 機器人提問並回覆';
+        $GoogleSheet = new ModelGoogleSheet();
+        $GoogleSheet->getDataArray();
     }
 
 /************************************
