@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelGoogleSheet {
     private $gogoleSheetId = '';         //表單編號
     private $googleSheetName = '';       //分頁名稱
@@ -25,14 +26,15 @@ class ModelGoogleSheet {
     * @return：JSON Array
 ***********************************/
     function InitGoogleClient(){
-        $client = new \Google_Client();
+        
+        $client = new Google_Client();
         $client->setApplicationName('Google Sheets and PHP');
-        $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
+        $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
         $client->setAuthConfig('./credentials.json');
 
         // 建立 Google Sheets Service
-        $this->GoogleApp = new \Google_Service_Sheets($client);
+        $this->GoogleApp = new Google_Service_Sheets($client);
 
     }
 /************************************
