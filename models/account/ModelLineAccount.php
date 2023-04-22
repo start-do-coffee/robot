@@ -1,74 +1,50 @@
 <?php
 
+
 class ModelLineAccount {
-    
-    
+    use LINE\LINEBot;
+    use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+    use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+    use LINE\LINEBot\Event\MessageEvent\TextMessage;
 /************************************
     * 函式簡述： 登入
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
     function login(){
-        echo "Model Line Login";
-        // 建立 Google Client
-$client = new \Google_Client();
-$client->setApplicationName('Google Sheets and PHP');
-// 設定權限
-$client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
-$client->setAccessType('offline');
-// 引入金鑰
-$client->setAuthConfig(__DIR__ . '/credentials.json');
 
-// 建立 Google Sheets Service
-$service = new \Google_Service_Sheets($client);
+        // 透過composer 安裝 line bot SDK    
+        //composer require linecorp/line-bot-sdk
 
-// Google Sheet ID
-$spreadsheetId = '18e1rZdQDRB-x6-q40IE56ca1sWmfsu9fVAyyWaojNYI';
-// 取得 Sheet 範圍
-$getRange = "start-do-ask!A1:L20";
+        // YOUR_CHANNEL_ACCESS_TOKEN 和 YOUR_CHANNEL_SECRET 要替換成自己的值
+        $channel_access_token = 't5wxDlmFJMgTf37rcx2NWxUF9KUA4+7UZNwKHn54Ujsk8EhmG9tRBKenhbgiFui3OCLLWuODpsrQ5K0770Gohv8hSkhElmN03v1RvBv80DZyqnezAMQ2QEn6yun8F4uuxKcRvufPaBJp0oilNPaLewdB04t89/1O/w1cDnyilFU=';
+        $channel_secret = 'c1660ccd6e52308d78d23a044f29ee38';
 
-// 讀取資料
-$response = $service->spreadsheets_values->get($spreadsheetId, $getRange);
-$values = $response->getValues();
+        
+        // 建立 LINE Bot
+        $http_client = new CurlHTTPClient($channel_access_token);
+        $bot = new LINEBot($http_client, ['channelSecret' => $channel_secret]);
 
-$searchValue = '2023-04-16'; // 要搜尋的值
+        // 取得 LINE 的請求內容
+        $content = file_get_contents('php://input');
+        $events = json_decode($content, true);
 
-$found = false; // 設定一個旗標來表示是否有找到對應的值
+        // 當收到文字訊息時
+        if (!empty($events['events'][0]['message']['text'])) {
+            $text = $events['events'][0]['message']['text'];
 
-// 迴圈搜尋
-foreach ($values as $row) {
-    if (isset($row[0]) && count($row) >= 2 && $row[0] == $searchValue) {
-        echo "<br><br><br><br>問句是: ";
-        echo "$searchValue";
-        echo "<br><br><br><br>回答是: ";
-        echo $row[1]; // 輸出對應的第二欄資料
-        $found = true;
+            // 回覆相同的訊息
+            $text_message = new TextMessageBuilder($text);
+            $event = new TextMessage(['text' => $text]);
 
-        break;
-    }
-
-}
-
-if (!$found) {
-    echo "找不到對應的資料";
-}
-if (empty($values)) {
-    print "No data found.\n";
-} else {
-    foreach ($values as $row) {
-        $date = isset($row[0]) ? $row[0] : '';
-        $question = isset($row[1]) ? $row[1] : '';
-        $answer = isset($row[2]) ? $row[2] : '';
-
-        printf("日期：%s，問題：%s，答案：%s<br>", $date, $question, $answer);
-    }
-}
-      
+            $response = $bot->replyMessage($event->getReplyToken(), $text_message);
+            if (!$response->isSucceeded()) {
+                error_log('Failed to send reply: ' . $response->getHTTPStatus() . ' ' . $response->getRawBody());
+            }
+        }
 
 
-      
-
-      
+        
     }
 /************************************
     * 函式簡述： 登出
