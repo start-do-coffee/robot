@@ -1,51 +1,72 @@
 <?php
-
-
-class ModelLineAccount {
-    use LINE\LINEBot;
+use LINE\LINEBot;
     use LINE\LINEBot\HTTPClient\CurlHTTPClient;
     use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
     use LINE\LINEBot\Event\MessageEvent\TextMessage;
+
+class ModelLineAccount {
+    
 /************************************
     * 函式簡述： 登入
     * 輸入參數 ：Null
     * @return：JSON Array
 ***********************************/
-    function login(){
+function login(){
+  $file = fopen("output.txt", "w");
+  echo "123";
 
-        // 透過composer 安裝 line bot SDK    
-        //composer require linecorp/line-bot-sdk
+  
+    // YOUR_CHANNEL_ACCESS_TOKEN 和 YOUR_CHANNEL_SECRET 要替換成自己的值
+    $channel_access_token = 't5wxDlmFJMgTf37rcx2NWxUF9KUA4+7UZNwKHn54Ujsk8EhmG9tRBKenhbgiFui3OCLLWuODpsrQ5K0770Gohv8hSkhElmN03v1RvBv80DZyqnezAMQ2QEn6yun8F4uuxKcRvufPaBJp0oilNPaLewdB04t89/1O/w1cDnyilFU=';
+    $channel_secret = 'c1660ccd6e52308d78d23a044f29ee38';
 
-        // YOUR_CHANNEL_ACCESS_TOKEN 和 YOUR_CHANNEL_SECRET 要替換成自己的值
-        $channel_access_token = 't5wxDlmFJMgTf37rcx2NWxUF9KUA4+7UZNwKHn54Ujsk8EhmG9tRBKenhbgiFui3OCLLWuODpsrQ5K0770Gohv8hSkhElmN03v1RvBv80DZyqnezAMQ2QEn6yun8F4uuxKcRvufPaBJp0oilNPaLewdB04t89/1O/w1cDnyilFU=';
-        $channel_secret = 'c1660ccd6e52308d78d23a044f29ee38';
+    // 取得 line bot 傳來的訊息
+    $entityBody = file_get_contents('php://input');
+    $events = json_decode($entityBody, true);
 
-        
-        // 建立 LINE Bot
-        $http_client = new CurlHTTPClient($channel_access_token);
-        $bot = new LINEBot($http_client, ['channelSecret' => $channel_secret]);
+    // 檢查訊息是否為文字訊息
+  if (isset($events['events']) && is_array($events['events'])) {
+    foreach ($events['events'] as $event) {
+    if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+        $userMessage = $event['message']['text']; // 取得用戶輸入的訊息
+        $txt = $userMessage;
+        fwrite($file, $txt);
+        fclose($file);
+        // 寫入收到的訊息到檔案中
+        $file = 'message_log.txt';
+        $current = file_get_contents($file);
+        $current .= "User: " . $userMessage . "\n";
+        file_put_contents($file, $current);
 
-        // 取得 LINE 的請求內容
-        $content = file_get_contents('php://input');
-        $events = json_decode($content, true);
-
-        // 當收到文字訊息時
-        if (!empty($events['events'][0]['message']['text'])) {
-            $text = $events['events'][0]['message']['text'];
-
-            // 回覆相同的訊息
-            $text_message = new TextMessageBuilder($text);
-            $event = new TextMessage(['text' => $text]);
-
-            $response = $bot->replyMessage($event->getReplyToken(), $text_message);
-            if (!$response->isSucceeded()) {
-                error_log('Failed to send reply: ' . $response->getHTTPStatus() . ' ' . $response->getRawBody());
-            }
+        $replyMessage = "你的答案是 " . $userMessage; // 要回覆的訊息
+            error_log(json_encode($response));
+            // 回覆訊息給用戶
+            $response = [
+                'replyToken' => $event['replyToken'],
+                'messages' => [
+                    [
+                        'type' => 'text',
+                        'text' => $replyMessage
+                    ]
+                ]
+            ];
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://api.line.me/v2/bot/message/reply');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $channel_access_token
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            $result = curl_exec($ch);
+            curl_close($ch);
+            error_log($result);
         }
-
-
-        
     }
+  }
+}
 /************************************
     * 函式簡述： 登出
     * 輸入參數 ：Null
