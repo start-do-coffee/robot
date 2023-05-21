@@ -17,8 +17,8 @@ class cotrollerRobot {
         $file = fopen("output.txt", "w");
   
         // YOUR_CHANNEL_ACCESS_TOKEN 和 YOUR_CHANNEL_SECRET 要替換成自己的值
-        $channel_access_token = 't5wxDlmFJMgTf37rcx2NWxUF9KUA4+7UZNwKHn54Ujsk8EhmG9tRBKenhbgiFui3OCLLWuODpsrQ5K0770Gohv8hSkhElmN03v1RvBv80DZyqnezAMQ2QEn6yun8F4uuxKcRvufPaBJp0oilNPaLewdB04t89/1O/w1cDnyilFU=';
-        $channel_secret = 'c1660ccd6e52308d78d23a044f29ee38';
+        $channel_access_token = 'cXZ+5BY0P3qtfCgbkPsXjZvAH7JBosIicj8Tkds+itvSvFE/Wp6K0S1efbj/arUSi6+O5zPNmRKIs4ngQNBYg3O7GRxS4RgYjKD17gQ2Y3ejZGabySL5xIfN7DBtM0XEse2ExoQ6rbRnE0z8RQL8GQdB04t89/1O/w1cDnyilFU=';
+        $channel_secret = 'f24343c9eac510b48d37f7c908321160';
 
         // 取得 line bot 傳來的訊息
         $entityBody = file_get_contents('php://input');
