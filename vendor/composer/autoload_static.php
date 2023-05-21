@@ -147,6 +147,7 @@ class ComposerStaticInitbe802a25b3f2aad13f713aaa61ea967c
         'cotrollerChatGPT' => __DIR__ . '/../..' . '/controllers/robot/controllerChatGPT.php',
         'cotrollerGoogleAccount' => __DIR__ . '/../..' . '/controllers/account/controllerGoogleAccount.php',
         'cotrollerLineAccount' => __DIR__ . '/../..' . '/controllers/account/controllerLineAccount.php',
+        'cotrollerRobot' => __DIR__ . '/../..' . '/controllers/robot/controllerRobot.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

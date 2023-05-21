@@ -36,4 +36,5 @@ return array(
     'cotrollerChatGPT' => $baseDir . '/controllers/robot/controllerChatGPT.php',
     'cotrollerGoogleAccount' => $baseDir . '/controllers/account/controllerGoogleAccount.php',
     'cotrollerLineAccount' => $baseDir . '/controllers/account/controllerLineAccount.php',
+    'cotrollerRobot' => $baseDir . '/controllers/robot/controllerRobot.php',
 );
