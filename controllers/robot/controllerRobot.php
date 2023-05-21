@@ -14,7 +14,6 @@ class cotrollerRobot {
     * @return：JSON Array
 ***********************************/
     function index(){
-        echo "index";
 
         $channel_access_token = 'cXZ+5BY0P3qtfCgbkPsXjZvAH7JBosIicj8Tkds+itvSvFE/Wp6K0S1efbj/arUSi6+O5zPNmRKIs4ngQNBYg3O7GRxS4RgYjKD17gQ2Y3ejZGabySL5xIfN7DBtM0XEse2ExoQ6rbRnE0z8RQL8GQdB04t89/1O/w1cDnyilFU=';
         $channel_secret = 'c1660ccd6e52308d78d23a044f29ee38';
