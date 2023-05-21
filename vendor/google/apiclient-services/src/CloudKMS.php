@@ -290,16 +290,6 @@ class CloudKMS extends \Google\Service
                   'required' => true,
                 ],
               ],
-            ],'verifyConnectivity' => [
-              'path' => 'v1/{+name}:verifyConnectivity',
-              'httpMethod' => 'GET',
-              'parameters' => [
-                'name' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
             ],
           ]
         ]

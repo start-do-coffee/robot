@@ -15,7 +15,9 @@
 
     $router->map( 'GET', '/callback', array(new ModelRouterError(),'callback') ,'callback');
 
-    $router->map( 'GET', '/', array(new cotrollerRobot(),'index') ,'index');
+    $router->map( 'GET', '/', array(new cotrollerRobot(),'index') ,'home');
+
+    $router->map( 'GET', '/index', array(new cotrollerRobot(),'index') ,'index');
 
     $match = $router->match();
 

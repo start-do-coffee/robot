@@ -240,10 +240,9 @@ class Client
      * Helper wrapped around the OAuth 2.0 implementation.
      *
      * @param string $code code from accounts.google.com
-     * @param string $codeVerifier the code verifier used for PKCE (if applicable)
      * @return array access token
      */
-    public function fetchAccessTokenWithAuthCode($code, $codeVerifier = null)
+    public function fetchAccessTokenWithAuthCode($code)
     {
         if (strlen($code) == 0) {
             throw new InvalidArgumentException("Invalid code");
@@ -252,9 +251,6 @@ class Client
         $auth = $this->getOAuth2Service();
         $auth->setCode($code);
         $auth->setRedirectUri($this->getRedirectUri());
-        if ($codeVerifier) {
-            $auth->setCodeVerifier($codeVerifier);
-        }
 
         $httpHandler = HttpHandlerFactory::build($this->getHttpClient());
         $creds = $auth->fetchAuthToken($httpHandler);
@@ -361,10 +357,9 @@ class Client
      * The authorization endpoint allows the user to first
      * authenticate, and then grant/deny the access request.
      * @param string|array $scope The scope is expressed as an array or list of space-delimited strings.
-     * @param array $queryParams Querystring params to add to the authorization URL.
      * @return string
      */
-    public function createAuthUrl($scope = null, array $queryParams = [])
+    public function createAuthUrl($scope = null)
     {
         if (empty($scope)) {
             $scope = $this->prepareScopes();
@@ -395,7 +390,7 @@ class Client
             'response_type' => 'code',
             'scope' => $scope,
             'state' => $this->config['state'],
-        ]) + $queryParams;
+        ]);
 
         // If the list of scopes contains plus.login, add request_visible_actions
         // to auth URL.

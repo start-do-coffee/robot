@@ -302,17 +302,7 @@ class DataprocMetastore extends \Google\Service
         'services',
         [
           'methods' => [
-            'alterLocation' => [
-              'path' => 'v1/{+service}:alterLocation',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'service' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
-            ],'create' => [
+            'create' => [
               'path' => 'v1/{+parent}/services',
               'httpMethod' => 'POST',
               'parameters' => [
@@ -404,16 +394,6 @@ class DataprocMetastore extends \Google\Service
                   'type' => 'string',
                 ],
               ],
-            ],'moveTableToDatabase' => [
-              'path' => 'v1/{+service}:moveTableToDatabase',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'service' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ],
-              ],
             ],'patch' => [
               'path' => 'v1/{+name}',
               'httpMethod' => 'PATCH',
@@ -430,16 +410,6 @@ class DataprocMetastore extends \Google\Service
                 'updateMask' => [
                   'location' => 'query',
                   'type' => 'string',
-                ],
-              ],
-            ],'queryMetadata' => [
-              'path' => 'v1/{+service}:queryMetadata',
-              'httpMethod' => 'POST',
-              'parameters' => [
-                'service' => [
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
                 ],
               ],
             ],'restore' => [
